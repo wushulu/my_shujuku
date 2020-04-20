@@ -10,6 +10,7 @@
             ID INT PRIMARY NOT NULL,
             AGE INT NOT NULL
         );
+        删除表格：DROP TABLE database_name.table_name;
     3、查看所有表格名称指令 .tables
     4、查看某个表格定义信息.schema mytesttable
     5、sqlite3 的数据类型 常用：
@@ -77,3 +78,27 @@
         IS NOT	IS NOT 运算符与 != 相似。
         ||	连接两个不同的字符串，得到一个新的字符串。
         UNIQUE	UNIQUE 运算符搜索指定表中的每一行，确保唯一性（无重复）。
+    12、python 写数据
+    ```
+    import sqlite3
+    conn = sqlite3.connect('shujuku.db')
+    c = conn.cursor()
+    data = (5,18)
+    sql = "INSERT INTO mytesttable (ID,AGE) \
+    VALUES (?, ? )"
+    c.execute(sql,data)
+    #cursor = conn.execute("SELECT ID,AGE mytesttable")
+    cursor = conn.execute("SELECT *from mytesttable")
+    conn.commit()
+
+
+
+    for row in cursor:
+        print(row[0])
+        print(row[1])
+        print(row[2])
+        print(row[3])
+        #print(row[4])
+
+    conn.close()
+    ```

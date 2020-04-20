@@ -79,7 +79,7 @@
         ||	连接两个不同的字符串，得到一个新的字符串。
         UNIQUE	UNIQUE 运算符搜索指定表中的每一行，确保唯一性（无重复）。
     12、python 写数据
-    ```
+    ```python
     import sqlite3
     conn = sqlite3.connect('shujuku.db')
     c = conn.cursor()
